@@ -1,0 +1,26 @@
+<html>
+   <head>
+       <title>Guest List</title>
+       <link rel="stylesheet" href="/css/styles.css">
+    </head> 
+   <body>
+       <div class="box">
+           <h1 id="heading">Guest List</h1>
+        </div>  
+        {{#each guest}}
+         <div class="box">
+        <form action="/guests/checked" method="POST"> 
+           <div class="item">
+            <input type="checkbox" name="checkbox" onchange="this.form.submit()" {{Checked}}>
+            <p>{{Designation}}. {{Name}} is attending the event: {{Event}} is allergic to:{{Allergy}}</p>
+            </div>
+          <input  type="hidden" name="email" value={{Email}}></input>
+            </form>
+        
+       {{else}}  
+        <p>No Guests</p>
+        {{/each}} 
+    </div>
+          
+   </body>
+</html>
